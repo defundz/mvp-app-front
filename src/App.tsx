@@ -10,9 +10,11 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import "./App.css";
 
+const projectId = import.meta.env.RAINBOW_PROJECT_ID;
+
 const config = getDefaultConfig({
   appName: "FunDex",
-  projectId: "", // todo: put it into .env
+  projectId: projectId,
   chains: [mainnet, polygon, optimism, arbitrum, base],
   ssr: false,
 });
