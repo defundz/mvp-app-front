@@ -5,6 +5,7 @@ import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { Button } from "@/components/ui/button";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
@@ -30,6 +31,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
           <ConnectButton />
+          <Button>Click me</Button>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
