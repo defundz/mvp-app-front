@@ -1,41 +1,36 @@
 // import { useState } from 'react'
 
 import "@rainbow-me/rainbowkit/styles.css";
-import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { WagmiProvider } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import "./App.css";
 
-const projectId = import.meta.env.VITE_RAINBOW_PROJECT_ID;
+const Layout = () => (
+  <>
+    {/* <Navbar /> */}
+    <ConnectButton />
+    <Button>Click me</Button>
+    <main className="p-6">
+      <Outlet />
+    </main>
+  </>
+);
 
-console.log("projectId", projectId);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      // { path: "vaults", element: <VaultsList /> },
+      // { path: "vaults/:vaultId", element: <VaultDetail /> },
+      // { path: "dashboard", element: <Dashboard /> },
+    ],
+  },
+]);
 
-const config = getDefaultConfig({
-  appName: "FunDex",
-  projectId: projectId,
-  chains: [mainnet, polygon, optimism, arbitrum, base],
-  ssr: false,
-});
-
-function App() {
-  // const [count, setCount] = useState(0)
-  const queryClient = new QueryClient();
-
-  return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
-          <ConnectButton />
-          <Button>Click me</Button>
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;
