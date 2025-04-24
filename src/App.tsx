@@ -1,5 +1,3 @@
-// import { useState } from 'react'
-
 import "@rainbow-me/rainbowkit/styles.css";
 import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
 
@@ -21,7 +19,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        index: true, // <- cette route s'active sur "/"
+        index: true, // route enabled on "/"
         element: <Navigate to="/vaults" replace />
       },
       // { path: "vaults", element: <VaultsList /> },
