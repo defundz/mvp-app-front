@@ -1,4 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -46,11 +52,11 @@ export function VaultCard(props: VaultCardProps) {
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
           </div>
-          <img src={chainLogo} alt={chainName} className="w-6 h-6" />
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-2 m-5">
+            <span className="text-muted-foreground">Underlying</span>
             <img src={assetLogo} alt={assetSymbol} className="w-5 h-5" />
             <Badge variant="outline">{assetSymbol}</Badge>
           </div>
@@ -64,7 +70,11 @@ export function VaultCard(props: VaultCardProps) {
             </div>
             <div>
               <span className="text-muted-foreground">30d Avg APY</span>
-              <p className={cn(avg30dApy < 0 ? "text-red-500" : "text-green-600")}>
+              <p
+                className={cn(
+                  avg30dApy < 0 ? "text-red-500" : "text-green-600"
+                )}
+              >
                 {avg30dApy.toFixed(2)}%
               </p>
             </div>
@@ -81,6 +91,13 @@ export function VaultCard(props: VaultCardProps) {
             <div>
               <span className="text-muted-foreground">Inception</span>
               <p>{inception}</p>
+            </div>
+            <div>
+              <span className="text-muted-foreground">Chain</span>
+              <span className="grid grid-cols-2">
+                <p>{chainName}</p>
+                <img src={chainLogo} alt={chainName} className="w-6 h-6" />
+              </span>
             </div>
           </div>
 
