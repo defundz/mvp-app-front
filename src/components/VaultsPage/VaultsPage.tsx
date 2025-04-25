@@ -9,7 +9,6 @@ import {
 import { useState } from "react";
 import { VaultCard } from "../VaultCard/VaultCard";
 
-// Dummy vaults data for now
 const mockVaults = [
   {
     id: "0xabc123",
