@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
 type VaultCardProps = {
-  id: string; // contract address
+  id: string;
   title: string;
   description: string;
   netApr: number;
@@ -45,17 +45,20 @@ export function VaultCard(props: VaultCardProps) {
   } = props;
 
   return (
-    <Card className="hover:shadow-md transition-shadow duration-200">
-      <Link to={`/vaults/${id}`}>
-        <CardHeader className="flex items-center justify-between space-y-2">
-          <div>
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
-          </div>
+    <Card className="flex flex-col justify-between hover:shadow-md transition-shadow duration-200 h-full">
+      <Link
+        to={`/vaults/${id}`}
+        className="h-full flex flex-col justify-between"
+      >
+        <CardHeader className="min-h-[80px]">
+          <CardTitle>{title}</CardTitle>
+          <CardDescription className="line-clamp-2">
+            {description}
+          </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-4">
-          <div className="flex items-center justify-center gap-2 m-5">
+        <CardContent className="space-y-4 min-h-[320px] flex flex-col justify-between">
+          <div className="flex items-center justify-center gap-2">
             <span className="text-muted-foreground">Underlying</span>
             <img src={assetLogo} alt={assetSymbol} className="w-5 h-5" />
             <Badge variant="outline">{assetSymbol}</Badge>
@@ -94,10 +97,10 @@ export function VaultCard(props: VaultCardProps) {
             </div>
             <div>
               <span className="text-muted-foreground">Chain</span>
-              <span className="grid grid-cols-2">
+              <div className="flex items-center justify-center gap-2">
                 <p>{chainName}</p>
                 <img src={chainLogo} alt={chainName} className="w-6 h-6" />
-              </span>
+              </div>
             </div>
           </div>
 

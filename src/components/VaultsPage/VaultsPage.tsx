@@ -22,9 +22,9 @@ const mockVaults = [
     tvlUnderlying: "810 ETH",
     settlementTime: "instant",
     assetSymbol: "ETH",
-    assetLogo: "src/assets/eth.png",
+    assetLogo: "/assets/eth.png",
     chainName: "Arbitrum",
-    chainLogo: "src/assets/arbitrum.svg",
+    chainLogo: "/assets/arbitrum.svg",
   },
   {
     id: "0xdef456",
@@ -37,9 +37,9 @@ const mockVaults = [
     tvlUnderlying: "500,000 USDC",
     settlementTime: "<1h",
     assetSymbol: "USDC",
-    assetLogo: "src/assets/usdc.svg",
+    assetLogo: "/assets/usdc.svg",
     chainName: "Base",
-    chainLogo: "src/assets/base.webp",
+    chainLogo: "/assets/base.webp",
   },
 ];
 
