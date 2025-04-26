@@ -14,7 +14,7 @@ export default function Navbar() {
   const isActive = (path: string) => pathname.startsWith(path);
 
   return (
-    <header className="border-b w-full px-4 py-4 flex items-center justify-between">
+    <header className="border-b w-full px-4 py-4 flex items-center justify-between sticky top-0 bg-background z-50">
       <h1 className="text-xl font-bold">FunDex</h1>
 
       <div className="flex-1" />

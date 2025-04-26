@@ -56,11 +56,11 @@ export default function VaultsPage() {
 
   return (
     <div className="p-6 flex flex-col gap-6">
-      <h1 className="text-2xl font-bold text-center">
-        Find your perfect vault
+      <h1 className="text-2xl font-bold text-center mt-5 mb-8">
+        Find the vault that fits your investment strategy
       </h1>
 
-      <div className="flex flex-wrap gap-4 items-center justify-center">
+      <div className="flex flex-wrap justify-between items-center gap-4">
         <Input
           placeholder="Search vaults..."
           value={search}
@@ -68,41 +68,45 @@ export default function VaultsPage() {
           className="w-[250px]"
         />
 
-        <Select
-          onValueChange={(value) =>
-            setSelectedChain(value === "all" ? null : value)
-          }
-        >
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="All chains" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All chains</SelectItem>
-            {[...new Set(mockVaults.map((v) => v.chainName))].map((chain) => (
-              <SelectItem key={chain} value={chain}>
-                {chain}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className="flex gap-4">
+          <Select
+            onValueChange={(value) =>
+              setSelectedChain(value === "all" ? null : value)
+            }
+          >
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="All chains" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All chains</SelectItem>
+              {[...new Set(mockVaults.map((v) => v.chainName))].map((chain) => (
+                <SelectItem key={chain} value={chain}>
+                  {chain}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
-        <Select
-          onValueChange={(value) =>
-            setSelectedAsset(value === "all" ? null : value)
-          }
-        >
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="All assets" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All assets</SelectItem>
-            {[...new Set(mockVaults.map((v) => v.underlying))].map((asset) => (
-              <SelectItem key={asset} value={asset}>
-                {asset}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          <Select
+            onValueChange={(value) =>
+              setSelectedAsset(value === "all" ? null : value)
+            }
+          >
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="All assets" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All assets</SelectItem>
+              {[...new Set(mockVaults.map((v) => v.underlying))].map(
+                (asset) => (
+                  <SelectItem key={asset} value={asset}>
+                    {asset}
+                  </SelectItem>
+                )
+              )}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <div className="grid grid-cols-6 items-center text-xs font-bold uppercase text-muted-foreground p-2 border-b">
