@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-rou
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import VaultsPageReloaded from "./components/VaultsPageReloaded/VaultPageReloaded";
+import VaultsPage from "./components/VaultsPage/VaultPage";
 
 const Layout = () => (
   <>
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         index: true, // route enabled on "/"
         element: <Navigate to="/vaults" replace />
       },
-      { path: "vaults", element: <VaultsPageReloaded /> },
+      { path: "vaults", element: <VaultsPage /> },
       // { path: "vaults/:vaultId", element: <VaultDetail /> },
       // { path: "dashboard", element: <Dashboard /> },
       {
