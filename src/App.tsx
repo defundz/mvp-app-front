@@ -1,9 +1,15 @@
 import "@rainbow-me/rainbowkit/styles.css";
-import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import VaultsPage from "./components/VaultsPage/VaultPage";
+import VaultDetail from "./components/VaultDetail/VaultDetail";
 
 const Layout = () => (
   <>
@@ -21,10 +27,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, // route enabled on "/"
-        element: <Navigate to="/vaults" replace />
+        element: <Navigate to="/vaults" replace />,
       },
       { path: "vaults", element: <VaultsPage /> },
-      // { path: "vaults/:vaultId", element: <VaultDetail /> },
+      { path: "vaults/:vaultId", element: <VaultDetail /> },
       // { path: "dashboard", element: <Dashboard /> },
       {
         path: "*",

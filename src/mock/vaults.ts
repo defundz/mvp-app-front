@@ -4,6 +4,8 @@ export const mockVaults: Vault[] = [
   {
     id: "0xvault1",
     title: "USDC Yield Optimizer",
+    description:
+      "A high-yield strategy focusing on stablecoin lending and yield farming",
     netApy: 3.25,
     avg30dApy: 3.1,
     tvlUnderlying: "1,000,000 USDC",
@@ -12,10 +14,34 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/usdc.svg",
     chainName: "Base",
     chainLogo: "/assets/base.webp",
+    creationDate: "2024-01-15",
+    settlementTime: "Instant",
+    fees: {
+      entry: 0.1,
+      exit: 0.1,
+      performance: 10,
+    },
+    performance: {
+      sinceLaunch: 12.5,
+      last30Days: 3.1,
+    },
+    recentEvents: [
+      {
+        type: "Rebalancing",
+        date: "2024-03-20",
+        description: "Strategy rebalanced to optimize yield",
+      },
+      {
+        type: "Snapshot",
+        date: "2024-03-15",
+        description: "Monthly performance snapshot",
+      },
+    ],
   },
   {
     id: "0xvault2",
     title: "ETH Leveraged Strategy",
+    description: "Advanced ETH strategy using leverage to maximize returns",
     netApy: -0.75,
     avg30dApy: -1.2,
     tvlUnderlying: "750 ETH",
@@ -24,10 +50,29 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/eth.png",
     chainName: "Arbitrum",
     chainLogo: "/assets/arbitrum.svg",
+    creationDate: "2024-02-01",
+    settlementTime: "<1h",
+    fees: {
+      entry: 0.2,
+      exit: 0.2,
+      performance: 15,
+    },
+    performance: {
+      sinceLaunch: -2.5,
+      last30Days: -1.2,
+    },
+    recentEvents: [
+      {
+        type: "Rebalancing",
+        date: "2024-03-18",
+        description: "Leverage ratio adjusted based on market conditions",
+      },
+    ],
   },
   {
     id: "0xvault3",
     title: "DAI Stable Vault",
+    description: "Conservative DAI strategy focusing on capital preservation",
     netApy: 2.0,
     avg30dApy: 2.1,
     tvlUnderlying: "500,000 DAI",
@@ -36,10 +81,29 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/dai.svg",
     chainName: "Optimism",
     chainLogo: "/assets/op.svg",
+    creationDate: "2024-01-20",
+    settlementTime: "Instant",
+    fees: {
+      entry: 0.05,
+      exit: 0.05,
+      performance: 5,
+    },
+    performance: {
+      sinceLaunch: 8.2,
+      last30Days: 2.1,
+    },
+    recentEvents: [
+      {
+        type: "Snapshot",
+        date: "2024-03-15",
+        description: "Monthly performance snapshot",
+      },
+    ],
   },
   {
     id: "0xvault4",
     title: "WBTC High Yield",
+    description: "High-risk high-reward WBTC strategy",
     netApy: 5.5,
     avg30dApy: 5.3,
     tvlUnderlying: "20 WBTC",
@@ -48,10 +112,29 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/wbtc.svg",
     chainName: "Base",
     chainLogo: "/assets/base.webp",
+    creationDate: "2024-02-15",
+    settlementTime: ">1h",
+    fees: {
+      entry: 0.3,
+      exit: 0.3,
+      performance: 20,
+    },
+    performance: {
+      sinceLaunch: 15.8,
+      last30Days: 5.3,
+    },
+    recentEvents: [
+      {
+        type: "Rebalancing",
+        date: "2024-03-19",
+        description: "Strategy adjusted for market volatility",
+      },
+    ],
   },
   {
     id: "0xvault5",
     title: "USDC Conservative Strategy",
+    description: "Low-risk USDC strategy with stable returns",
     netApy: 1.8,
     avg30dApy: 1.9,
     tvlUnderlying: "750,000 USDC",
@@ -60,10 +143,29 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/usdc.svg",
     chainName: "Optimism",
     chainLogo: "/assets/op.svg",
+    creationDate: "2024-01-25",
+    settlementTime: "Instant",
+    fees: {
+      entry: 0.05,
+      exit: 0.05,
+      performance: 5,
+    },
+    performance: {
+      sinceLaunch: 6.5,
+      last30Days: 1.9,
+    },
+    recentEvents: [
+      {
+        type: "Snapshot",
+        date: "2024-03-15",
+        description: "Monthly performance snapshot",
+      },
+    ],
   },
   {
     id: "0xvault6",
     title: "ETH Growth Fund",
+    description: "Long-term ETH growth strategy",
     netApy: 4.2,
     avg30dApy: 3.9,
     tvlUnderlying: "300 ETH",
@@ -72,10 +174,29 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/eth.png",
     chainName: "Base",
     chainLogo: "/assets/base.webp",
+    creationDate: "2024-02-10",
+    settlementTime: "<1h",
+    fees: {
+      entry: 0.15,
+      exit: 0.15,
+      performance: 12,
+    },
+    performance: {
+      sinceLaunch: 10.2,
+      last30Days: 3.9,
+    },
+    recentEvents: [
+      {
+        type: "Rebalancing",
+        date: "2024-03-17",
+        description: "Portfolio rebalanced for optimal growth",
+      },
+    ],
   },
   {
     id: "0xvault7",
     title: "DAI Passive Income",
+    description: "Passive income strategy for DAI holders",
     netApy: 2.7,
     avg30dApy: 2.5,
     tvlUnderlying: "350,000 DAI",
@@ -84,10 +205,29 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/dai.svg",
     chainName: "Arbitrum",
     chainLogo: "/assets/arbitrum.svg",
+    creationDate: "2024-01-30",
+    settlementTime: "Instant",
+    fees: {
+      entry: 0.1,
+      exit: 0.1,
+      performance: 8,
+    },
+    performance: {
+      sinceLaunch: 9.8,
+      last30Days: 2.5,
+    },
+    recentEvents: [
+      {
+        type: "Snapshot",
+        date: "2024-03-15",
+        description: "Monthly performance snapshot",
+      },
+    ],
   },
   {
     id: "0xvault8",
     title: "WBTC Conservative Hold",
+    description: "Conservative WBTC holding strategy",
     netApy: -0.5,
     avg30dApy: -0.7,
     tvlUnderlying: "10 WBTC",
@@ -96,5 +236,23 @@ export const mockVaults: Vault[] = [
     underlyingLogo: "/assets/wbtc.svg",
     chainName: "Optimism",
     chainLogo: "/assets/op.svg",
+    creationDate: "2024-02-20",
+    settlementTime: ">1h",
+    fees: {
+      entry: 0.1,
+      exit: 0.1,
+      performance: 8,
+    },
+    performance: {
+      sinceLaunch: -1.8,
+      last30Days: -0.7,
+    },
+    recentEvents: [
+      {
+        type: "Rebalancing",
+        date: "2024-03-16",
+        description: "Strategy adjusted for market conditions",
+      },
+    ],
   },
 ];
