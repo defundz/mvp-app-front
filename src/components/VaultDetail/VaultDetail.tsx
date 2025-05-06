@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { mockVaults } from "@/mock/vaults";
 import { Vault } from "@/types/Vault";
 import { ArrowLeft, InfoIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAccount } from "wagmi";
 
@@ -13,6 +18,10 @@ export default function VaultDetail() {
   const { vaultId } = useParams();
   const [depositAmount, setDepositAmount] = useState<string>("");
   const { address } = useAccount();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const vault = mockVaults.find((v) => v.id === vaultId) as Vault;
 
