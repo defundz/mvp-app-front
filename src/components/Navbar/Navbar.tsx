@@ -1,4 +1,9 @@
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Link, useLocation } from "react-router-dom";
@@ -10,7 +15,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="border-b px-4 py-4 flex items-center justify-between bg-background mx-12">
+      <div className="border-b px-4 py-4 flex items-center justify-between bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mx-12">
         <h1 className="text-xl font-bold">FunDex</h1>
         <div className="flex-1" />
 

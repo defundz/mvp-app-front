@@ -1,18 +1,13 @@
-import { useParams } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { mockVaults } from "@/mock/vaults";
 import { Vault } from "@/types/Vault";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { ArrowLeft, InfoIcon } from "lucide-react";
 import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useAccount } from "wagmi";
-import { InfoIcon } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 export default function VaultDetail() {
   const { vaultId } = useParams();
@@ -54,7 +49,18 @@ export default function VaultDetail() {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto px-12 pt-0 pb-8">
+      <div className="mb-4 text-left">
+        <Link to="/vaults">
+          <Button
+            variant="ghost"
+            className="gap-2 text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to vaults selection
+          </Button>
+        </Link>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Colonne de gauche - Informations générales */}
         <div className="space-y-8">
@@ -125,7 +131,7 @@ export default function VaultDetail() {
             <CardHeader>
               <CardTitle>Vault Statistics</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-3 gap-4">
+            <CardContent className="grid grid-cols-2 gap-4">
               <div>
                 <h3 className="font-semibold">TVL</h3>
                 <p>{vault.tvlUnderlying}</p>
@@ -138,24 +144,30 @@ export default function VaultDetail() {
                 <p>Since Launch: {vault.performance.sinceLaunch}%</p>
                 <p>Last 30 Days: {vault.performance.last30Days}%</p>
               </div>
-              <div>
-                <h3 className="font-semibold">Recent Events</h3>
-                <div className="space-y-2">
-                  {vault.recentEvents.map((event, index) => (
-                    <div key={index} className="text-sm">
-                      <p className="font-medium">{event.type}</p>
-                      <p className="text-muted-foreground">{event.date}</p>
-                      <p>{event.description}</p>
-                    </div>
-                  ))}
-                </div>
+            </CardContent>
+          </Card>
+
+          {/* Événements récents */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Events</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                {vault.recentEvents.map((event, index) => (
+                  <div key={index} className="text-sm">
+                    <p className="font-medium">{event.type}</p>
+                    <p className="text-muted-foreground">{event.date}</p>
+                    <p>{event.description}</p>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
         </div>
 
         {/* Colonne de droite - Informations utilisateur */}
-        <div className="space-y-8">
+        <div className="space-y-8 md:sticky md:top-[calc(72px+32px+40px)] md:self-start">
           {/* Informations utilisateur */}
           {address && (
             <Card>

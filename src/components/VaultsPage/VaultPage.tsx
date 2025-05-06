@@ -1,6 +1,5 @@
-import { useState, useMemo } from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -8,10 +7,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ChevronUp, ChevronDown } from "lucide-react";
 import { mockVaults } from "@/mock/vaults";
-import VaultElement from "../VaultElement/VaultElement";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+
+import VaultElement from "../VaultElement/VaultElement";
 
 export default function VaultsPage() {
   const [search, setSearch] = useState("");
@@ -60,7 +61,7 @@ export default function VaultsPage() {
       <h1 className="text-2xl font-bold text-center mt-5 mb-8">
         Find the vault that fits your investment strategy
       </h1>
-      <div className="sticky top-[60px] z-30 bg-background border-b pt-[25px]">
+      <div className="sticky top-[60px] z-30 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b pt-[25px]">
         <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
           <Input
             placeholder="Search vaults..."
@@ -112,7 +113,7 @@ export default function VaultsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-6 items-center text-xs font-bold uppercase text-muted-foreground p-2 border-b bg-background">
+        <div className="grid grid-cols-6 items-center text-xs font-bold uppercase text-muted-foreground p-2 border-b">
           <div className="text-left">Vault</div>
           <div>Underlying</div>
           <Button

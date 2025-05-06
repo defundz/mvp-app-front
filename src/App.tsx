@@ -20,18 +20,29 @@ const Layout = () => (
   </>
 );
 
+const VaultsLayout = () => (
+  <main className="p-0">
+    <Outlet />
+  </main>
+);
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
       {
-        index: true, // route enabled on "/"
+        index: true,
         element: <Navigate to="/vaults" replace />,
       },
-      { path: "vaults", element: <VaultsPage /> },
-      { path: "vaults/:vaultId", element: <VaultDetail /> },
-      // { path: "dashboard", element: <Dashboard /> },
+      {
+        path: "vaults",
+        element: <VaultsLayout />,
+        children: [
+          { index: true, element: <VaultsPage /> },
+          { path: ":vaultId", element: <VaultDetail /> },
+        ],
+      },
       {
         path: "*",
         element: (
