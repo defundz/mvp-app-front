@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <div className="border-b px-4 py-4 flex items-center justify-between bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mx-12">
-        <h1 className="text-xl font-bold">FunDex</h1>
+        <h1 className="text-xl font-bold">T3Tris</h1>
         <div className="flex-1" />
 
         <NavigationMenu px-12>
