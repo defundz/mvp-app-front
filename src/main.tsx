@@ -12,7 +12,7 @@ import App from "./App";
 const projectId = import.meta.env.VITE_RAINBOW_PROJECT_ID;
 
 const config = getDefaultConfig({
-  appName: "FunDex",
+  appName: "T3Tris",
   projectId: projectId,
   chains: [mainnet, polygon, optimism, arbitrum, base],
   ssr: false,
